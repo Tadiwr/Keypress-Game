@@ -5,8 +5,10 @@
     flex-direction: column;
     text-align: center;
     align-items: center;
+    transition: all, 2s;
 }
 
 h1 {
     color: white;
+    transition: all, 2s;
 }
