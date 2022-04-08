@@ -1,24 +1,33 @@
+
+console.log(
+    document.getElementById("body").style.height
+)
+
 let keydownCount = 0
 const colors = ["blue", "red", "yellow", "tomato", "green" ]
+
 
 // Changes the color of the background
 function changeBgColor(color) {
     document.getElementById("body").style.backgroundColor = color
-    document.getElementById("h1").innerText = color
+    // document.getElementById("h1").innerText = String(color).toUpperCase()
 }
 
-// Deides whether to have a ornage or blue backgound
-function x () {
-    if ((keydownCount % 2) == 0) {
-        changeBgColor("orange")
-        keydownCount = keydownCount + 1;
-    } else if ((keydownCount % 2) != 0) {
-        changeBgColor("blue")
-        keydownCount = keydownCount + 1;
+// Toggles between colors
+function toggleColors () {
+
+    if (keydownCount <= colors.length - 1) { 
+        changeBgColor(colors[keydownCount])
+        keydownCount ++
+    }
+    
+    else if (keydownCount > colors.length - 1 ) {
+        keydownCount = 0
     }
 }
 
 document.getElementById("body")
-,addEventListener("keydown", () => {
-    x()
+,addEventListener("keydown", (data) => {
+    toggleColors();
+    console.log(data.code)
 } )
